@@ -22,6 +22,7 @@ private:
     vector<InputWin> IW;
     vector<BaseWin *> list;
     string topmesg;
+    uint curn;
 public:
     void Init(int starty, int startx, int height, int width, short colorpBase, short colorpButtom, short colorpInput0, short colorpInput1, STATUS stat, string topmesg = "");
     chtype Read();

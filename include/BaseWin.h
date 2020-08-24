@@ -16,7 +16,7 @@ public:
     bool ifSelected(void);
     WINDOW *GetWin(void);
 
-    chtype Select(void);
+    virtual chtype Select(void);
     virtual chtype Read(void) = 0;
     virtual void Refresh(void) = 0;
 };

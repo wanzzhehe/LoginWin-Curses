@@ -5,10 +5,10 @@ void LoginWin::Init(int y, int x, int H, int W, short p0, short p1, short p2, sh
     stat = s, topmesg = tm;
     if(topmesg.length() == 0) {
         switch(stat) {
-            LOGIN: 
+            case LOGIN: 
                 topmesg = "Login";
                 break;
-            REGISTER:
+            case REGISTER:
                 topmesg = "Register";
                 break;
         }
@@ -47,6 +47,7 @@ void LoginWin::Init(int y, int x, int H, int W, short p0, short p1, short p2, sh
             break;
         }
     }
+    curn = 0;
 }
 
 void LoginWin::Refresh(void) {
@@ -62,20 +63,24 @@ void LoginWin::Refresh(void) {
         mvwchgat(scr, i, 0, -1, A_NORMAL, colorp, NULL);
     mvwchgat(scr, 1, 0, -1, A_BOLD, colorp, NULL);
     wrefresh(scr);
-    B_Okey.Refresh();
-    B_Cancel.Refresh();
-    for(vector<InputWin>::iterator i = IW.begin(); i != IW.end(); ++i)
-        i->Refresh();
+    for(vector<BaseWin *>::iterator i = list.begin(); i != list.end(); ++i)
+        (*i)->Refresh();
 }
 
 void LoginWin::RefreshLOGIN(void) {
     mvwprintw(scr, 1, (width - topmesg.length()) / 2, topmesg.c_str());
+    mvwprintw(scr, 3, 1, "Username: ");
+    mvwprintw(scr, 5, 1, "Password: ");
 }
 
 void LoginWin::RefreshREGISTER(void) {
-
+    mvwprintw(scr, 1, (width - topmesg.length()) / 2, topmesg.c_str());
+    mvwprintw(scr, 3, 1, "        Username: ");
+    mvwprintw(scr, 5, 1, "        Password: ");
+    mvwprintw(scr, 7, 1, "Confirm Password: ");
 }
 
 chtype LoginWin::Read(void) {
+
     return 0;
 }
