@@ -3,7 +3,7 @@
 void LoginWin::Init(int y, int x, int H, int W, short p0, short p1, short p2, short p3, STATUS s, string tm) {
     BaseWin::Init(y, x, H, W, p0);
     stat = s, topmesg = tm;
-    if(topmesg.length() == (std::size_t)0) {
+    if(topmesg.length() == 0) {
         switch(stat) {
             LOGIN: 
                 topmesg = "Login";
