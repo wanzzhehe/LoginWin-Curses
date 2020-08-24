@@ -14,6 +14,10 @@ int main() {
     init_pair(1, COLOR_BLUE, COLOR_GREEN);
     init_pair(2, COLOR_WHITE, COLOR_MAGENTA);
     init_pair(3, COLOR_YELLOW, COLOR_BLACK);
+    LW.Init(1, 1, 9, 40, 3, 1, 1, 2, LoginWin::LOGIN);
+    LW.Refresh();
+    getchar();
+    endwin();
 //    list[0] = new InputWin();
 //    list[1] = new InputWin();
 //    list[2] = new Buttom();
