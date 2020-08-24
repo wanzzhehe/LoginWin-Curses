@@ -13,8 +13,8 @@ int main() {
     curs_set(0);
     init_pair(1, COLOR_BLUE, COLOR_GREEN);
     init_pair(2, COLOR_WHITE, COLOR_MAGENTA);
-    init_pair(3, COLOR_YELLOW, COLOR_BLACK);
-    LW.Init(1, 1, 9, 40, 3, 1, 1, 2, LoginWin::LOGIN);
+    init_pair(3, COLOR_BLACK, COLOR_YELLOW);
+    LW.Init(1, 1, 9, 40, 1, 1, 3, 2, LoginWin::LOGIN);
     LW.Refresh();
     getchar();
     endwin();

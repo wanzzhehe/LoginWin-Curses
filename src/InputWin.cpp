@@ -6,8 +6,9 @@ using std::string;
 InputWin::InputWin() : text("") { ;}
 
 void InputWin::Init(int y, int x, int H, int W, short p0, short p1, STATUS s) {
-    BaseWin::Init(starty = y, startx = x, height = H, width = W, colorp = p0);
+    BaseWin::Init(y, x, H, W, p0);
     colorp1 = p1, stat = s;
+    curn = startn = 0;
 }
 
 void InputWin::Refresh(void) {
