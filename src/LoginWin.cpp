@@ -41,3 +41,11 @@ void LoginWin::Init(int y, int x, int H, int W, short p0, short p1, short p2, sh
         }
     }
 }
+
+void LoginWin::Refresh(void) {
+
+}
+
+chtype LoginWin::Read(void) {
+    return 0;
+}

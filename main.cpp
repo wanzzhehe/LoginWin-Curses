@@ -1,9 +1,11 @@
 #include "Buttom.h"
 #include "InputWin.h"
+#include "LoginWin.h"
 using namespace std;
 
 InputWin NAME, PASS;
 BaseWin *list[4];
+LoginWin LW;
 
 int main() {
     initscr();
@@ -11,6 +13,7 @@ int main() {
     curs_set(0);
     init_pair(1, COLOR_BLUE, COLOR_GREEN);
     init_pair(2, COLOR_WHITE, COLOR_MAGENTA);
+    init_pair(3, COLOR_YELLOW, COLOR_BLACK);
 //    list[0] = new InputWin();
 //    list[1] = new InputWin();
 //    list[2] = new Buttom();
