@@ -101,15 +101,24 @@ chtype LoginWin::Read(void) {
                 break;
             }
             case KEY_UP: {
+                if(curn == list.size() - 1 || curn == list.size() - 2) curn == list.size() - 3;
+                else if(curn == 0) curn == list.size() - 1;
+                else --curn;
                 break;
             }
             case KEY_DOWN: {
+                if(curn == list.size() - 1 || curn == list.size() - 2) curn = 0;
+                else ++curn;
                 break;
             }
             case KEY_LEFT: {
+                if(curn == list.size() - 1) curn = list.size() - 2;
+                else curn = list.size() - 1;
                 break;
             }
             case KEY_RIGHT: {
+                if(curn == list.size() - 1) curn = list.size() - 2;
+                else curn = list.size() - 1;
                 break;
             }
         }
