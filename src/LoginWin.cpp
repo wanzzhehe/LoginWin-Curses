@@ -81,6 +81,35 @@ void LoginWin::RefreshREGISTER(void) {
 }
 
 chtype LoginWin::Read(void) {
-
-    return 0;
+    chtype ch;
+    for(; ; ) {
+        ch = list[curn]->Select();
+        switch(ch) {
+            case 0x09: {
+                curn = (curn += 1) % list.size();
+                break;
+            }
+            case KEY_BTAB: {
+                if(curn == 0) curn = list.size() - 1;
+                else --curn;
+                break;
+            }
+            case 0x0A: {
+                break;
+            }
+            case KEY_UP: {
+                break;
+            }
+            case KEY_DOWN: {
+                break;
+            }
+            case KEY_LEFT: {
+                break;
+            }
+            case KEY_RIGHT: {
+                break;
+            }
+        }
+    }
+    return ch;
 }

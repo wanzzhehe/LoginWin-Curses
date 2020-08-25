@@ -61,7 +61,7 @@ chtype InputWin::Read(void) {
     noecho();
     do{
         ch = wgetch(scr);
-        if(ch == 0x0A || ch == 0x09 || ch == KEY_UP || ch == KEY_DOWN) break;
+        if(ch == 0x0A || ch == 0x09 || ch == KEY_UP || ch == KEY_DOWN || ch == KEY_BTAB) break;
         AddCh(ch);
         Refresh();
     }while(true);
