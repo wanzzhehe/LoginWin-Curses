@@ -15,8 +15,6 @@ void LoginWin::Init(int y, int x, int H, int W, short p0, short p1, short p2, sh
     }
     B_Okey.Init(starty + height - 2, startx + width / 4 - 4, 1, 8, p1, "< Okey >");
     B_Cancel.Init(starty + height - 2, startx + 3 * width / 4 - 4, 1, 8, p1, "<Cancel>");
-    list.push_back(&B_Okey);
-    list.push_back(&B_Cancel);
     //IW.push_back(InputWin());
     //IW.push_back(InputWin());
     //IW[0].Init(starty + 3, startx + 11, 1, width - 12, p2, p3, InputWin::NAME);
@@ -47,6 +45,8 @@ void LoginWin::Init(int y, int x, int H, int W, short p0, short p1, short p2, sh
             break;
         }
     }
+    list.push_back(&B_Okey);
+    list.push_back(&B_Cancel);
     curn = 0;
 }
 
@@ -81,6 +81,47 @@ void LoginWin::RefreshREGISTER(void) {
 }
 
 chtype LoginWin::Read(void) {
-    
-    return 0;
+    chtype ch;
+    for(; ; ) {
+        ch = list[curn]->Select();
+        switch(ch) {
+            case 0x09: {
+                curn = (curn += 1) % list.size();
+                break;
+            }
+            case KEY_BTAB: {
+                if(curn == 0) curn = list.size() - 1;
+                else --curn;
+                break;
+            }
+            case 0x0A: {
+                if(curn == list.size() - 2) return 1;
+                if(curn == list.size() - 1) return 0;
+                ++curn;
+                break;
+            }
+            case KEY_UP: {
+                if(curn == list.size() - 1 || curn == list.size() - 2) curn == list.size() - 3;
+                else if(curn == 0) curn == list.size() - 1;
+                else --curn;
+                break;
+            }
+            case KEY_DOWN: {
+                if(curn == list.size() - 1 || curn == list.size() - 2) curn = 0;
+                else ++curn;
+                break;
+            }
+            case KEY_LEFT: {
+                if(curn == list.size() - 1) curn = list.size() - 2;
+                else curn = list.size() - 1;
+                break;
+            }
+            case KEY_RIGHT: {
+                if(curn == list.size() - 1) curn = list.size() - 2;
+                else curn = list.size() - 1;
+                break;
+            }
+        }
+    }
+    return ch;
 }

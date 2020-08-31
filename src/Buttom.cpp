@@ -24,7 +24,7 @@ chtype Buttom::Read(void) {
         ch = wgetch(scr);
     }while(!(ch == KEY_UP || ch == KEY_DOWN ||
         ch == KEY_LEFT || ch == KEY_RIGHT ||
-        ch == 0x0A || ch == 0x09));
+        ch == 0x0A || ch == 0x09 || ch == KEY_BTAB));
     Select();
     keypad(scr, false);
     echo();
