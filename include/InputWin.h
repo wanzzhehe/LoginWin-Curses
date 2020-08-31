@@ -6,7 +6,7 @@
 #include <curses.h>
 using std::string;
 
-typedef unsigned int uint;
+using uint = unsigned int;
 
 class InputWin : public BaseWin {
 public:
