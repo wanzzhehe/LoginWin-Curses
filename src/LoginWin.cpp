@@ -102,7 +102,7 @@ chtype LoginWin::Read(void) {
             }
             case KEY_UP: {
                 if(curn == list.size() - 1 || curn == list.size() - 2) curn == list.size() - 3;
-                else if(curn == 0) curn == list.size() - 1;
+                else if(curn == 0) curn = list.size() - 1;
                 else --curn;
                 break;
             }
