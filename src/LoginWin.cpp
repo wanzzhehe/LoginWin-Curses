@@ -81,6 +81,6 @@ void LoginWin::RefreshREGISTER(void) {
 }
 
 chtype LoginWin::Read(void) {
-
+    
     return 0;
 }

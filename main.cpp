@@ -16,6 +16,7 @@ int main() {
     init_pair(3, COLOR_BLACK, COLOR_YELLOW);
     LW.Init(1, 1, 11, 80, 1, 1, 3, 2, LoginWin::REGISTER);
     LW.Refresh();
+    LW.Select();
     getchar();
     endwin();
 //    list[0] = new InputWin();
